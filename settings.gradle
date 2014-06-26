@@ -1,0 +1,4 @@
+/*
+// To declare projects as part of a multiproject build use the 'include' method
+include "shared", "api", "services:webservice", "services:shared"
+*/

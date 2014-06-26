@@ -1,0 +1,10 @@
+.gradle
+gradle*
+.idea
+build
+*.iws
+*.iml
+*.ipr
+CucumberReports
+*.log
+out

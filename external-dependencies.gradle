@@ -1,0 +1,16 @@
+ext.cucumberVersion = "1.1.5"
+ext.junitVersion = "4.10"
+ext.testngVersion = "6.8.1"
+ext.seleniumVersion = "2.39.0"
+
+ext.cucumber = [
+        core  : "info.cukes:cucumber-core:${cucumberVersion}",
+        java  : "info.cukes:cucumber-java:${cucumberVersion}",
+        junit : "info.cukes:cucumber-junit:${cucumberVersion}",
+        testng: "info.cukes:cucumber-testng:${cucumberVersion}",
+        groovy: "info.cukes:cucumber-groovy:${cucumberVersion}"
+]
+
+ext.junit = "junit:junit:${junitVersion}"
+ext.testng = "org.testng:testng:${testngVersion}"
+ext.selenium = "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
