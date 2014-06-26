@@ -1,7 +1,7 @@
 ext.cucumberVersion = "1.1.5"
 ext.junitVersion = "4.10"
 ext.testngVersion = "6.8.1"
-ext.seleniumVersion = "2.39.0"
+ext.seleniumVersion = "2.42.2"
 
 ext.cucumber = [
         core  : "info.cukes:cucumber-core:${cucumberVersion}",
