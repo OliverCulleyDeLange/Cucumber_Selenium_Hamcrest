@@ -2,7 +2,10 @@ package uk.co.oliverdelange.testrunners.junit;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+import uk.co.oliverdelange.webbrowser.BrowserPool;
 
 
 @RunWith(Cucumber.class)
@@ -13,4 +16,15 @@ import org.junit.runner.RunWith;
         monochrome = true
 )
 public class JUnitCucumberRunner {
+    @BeforeClass
+    public static void beforeClass() {
+        System.out.println("Do stuff here before the cucumber tests happen");
+    }
+
+    @AfterClass
+    public static void afterClass() {
+        System.out.println("Do stuff here after the cucumber tests happen");
+        System.out.println("Like shutting down all the web browsers...");
+        BrowserPool.closeAll();
+    }
 }

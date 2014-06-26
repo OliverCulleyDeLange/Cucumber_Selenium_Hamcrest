@@ -5,15 +5,14 @@ import uk.co.oliverdelange.webbrowser.BrowserPool;
 
 public class SeleniumTest {
 
-    public static BrowserPool browserPool = new BrowserPool();
     public Browser browser;
 
     public void setFirefoxBrowser() {
-        browser = browserPool.getFirefoxBrowser();
+        browser = BrowserPool.getFirefoxBrowser();
     }
 
     public void replaceBrowser(Browser browser) {
-        browserPool.putFirefoxBack(browser);
+        BrowserPool.putFirefoxBack(browser);
         this.browser = null;
     }
 }

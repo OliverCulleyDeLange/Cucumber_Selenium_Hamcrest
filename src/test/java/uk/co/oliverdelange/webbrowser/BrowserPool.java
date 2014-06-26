@@ -3,11 +3,12 @@ package uk.co.oliverdelange.webbrowser;
 import java.util.NoSuchElementException;
 
 public class BrowserPool {
+    private BrowserPool() {}
 
-    BrowserCache FirefoxCache = new BrowserCache();
-    BrowserCache FirefoxNoJsCache = new BrowserCache();
+    static BrowserCache FirefoxCache = new BrowserCache();
+    static BrowserCache FirefoxNoJsCache = new BrowserCache();
 
-    public Browser getFirefoxBrowser() {
+    public static Browser getFirefoxBrowser() {
         try {
             return FirefoxCache.get();
         } catch (NoSuchElementException e){
@@ -16,7 +17,7 @@ public class BrowserPool {
             return browser;
         }
     }
-    public Browser getFirefoxBrowserNoJs() {
+    public static Browser getFirefoxBrowserNoJs() {
         try {
             return FirefoxNoJsCache.get();
         } catch (NoSuchElementException e){
@@ -26,11 +27,12 @@ public class BrowserPool {
         }
     }
 
-    public void closeAll()  {
+    public static void closeAll()  {
         FirefoxCache.closeAll();
+        FirefoxNoJsCache.closeAll();
     }
 
-    public void putFirefoxBack(Browser browser) {
+    public static void putFirefoxBack(Browser browser) {
         browser.deleteAllCookies();
         FirefoxCache.putBrowserBack(browser);
     }
