@@ -23,11 +23,5 @@ public class TestNGCucumberRunner extends AbstractTestNGCucumberTests {
         System.out.println("Do stuff here after the cucumber tests happen");
         System.out.println("Like shutting down all the web browsers...");
         BrowserPool.closeAll();
-        //FIXME: The below is a bloody awful thing to do. But JUnit manages to close the browser before closing the tests, but somehow TestNG doesn't - what!?
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }
