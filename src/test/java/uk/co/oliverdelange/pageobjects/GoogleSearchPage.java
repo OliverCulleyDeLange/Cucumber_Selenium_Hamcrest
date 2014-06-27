@@ -2,6 +2,7 @@ package uk.co.oliverdelange.pageobjects;
 
 import com.google.common.base.Predicate;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,6 +35,7 @@ public class GoogleSearchPage extends AbstractPageObject {
                 return driver.findElement(By.id("rso")).isDisplayed();
             }
         });
+        searchBox.sendKeys(Keys.RETURN);
     }
 
     public boolean isShowingResultsFor(String searchTerm) {
