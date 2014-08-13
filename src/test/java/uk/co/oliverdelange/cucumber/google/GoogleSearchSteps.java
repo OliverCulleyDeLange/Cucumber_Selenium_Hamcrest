@@ -1,34 +1,27 @@
-package uk.co.oliverdelange.cucumber.tests;
+package uk.co.oliverdelange.cucumber.google;
 
 
-import uk.co.oliverdelange.cucumber.SeleniumTest;
 import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.hamcrest.MatcherAssert;
-import uk.co.oliverdelange.pageobjects.GoogleSearchPage;
-import uk.co.oliverdelange.pageobjects.Matchers.GoogleSearchResultsMatcher;
+import uk.co.oliverdelange.cucumber.SeleniumTest;
+import uk.co.oliverdelange.pageobjects.google.GoogleSearchPage;
+import uk.co.oliverdelange.webbrowser.Browser;
+import uk.co.oliverdelange.webbrowser.BrowserPool;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static uk.co.oliverdelange.pageobjects.Matchers.GoogleSearchResultsMatcher.isDisplayingResultsRelatedTo;
 
-public class GoogleSearchTest extends SeleniumTest {
+public class GoogleSearchSteps extends SeleniumTest {
 
     GoogleSearchPage googleSearchPage;
 
-    @Before("@RequiresSelenium")
-    public void before() {
-        setFirefoxBrowser();
-    }
-
-    @After("@RequiresSelenium")
-    public void after() {
-        replaceBrowser(browser);
-    }
-
     @Given("^I am on google search page$")
     public void I_am_on_google_search_page() throws Throwable {
+        System.out.println("Getting firefox browser for google");
+        browser = BrowserPool.getFirefoxBrowser();
         googleSearchPage = browser.navigateToGoogleSearchPage();
     }
 
@@ -39,6 +32,6 @@ public class GoogleSearchTest extends SeleniumTest {
 
     @Then("^I will see results related to (.*)$")
     public void I_will_see_results_related_to_text(String searchTerm) throws Throwable {
-        MatcherAssert.assertThat(googleSearchPage, GoogleSearchResultsMatcher.isDisplayingResultsRelatedTo(searchTerm));
+        assertThat(googleSearchPage, isDisplayingResultsRelatedTo(searchTerm));
     }
 }

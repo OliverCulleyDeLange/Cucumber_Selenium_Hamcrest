@@ -8,7 +8,9 @@ ext.cucumber = [
         java  : "info.cukes:cucumber-java:${cucumberVersion}",
         junit : "info.cukes:cucumber-junit:${cucumberVersion}",
         testng: "info.cukes:cucumber-testng:${cucumberVersion}",
-        groovy: "info.cukes:cucumber-groovy:${cucumberVersion}"
+        groovy: "info.cukes:cucumber-groovy:${cucumberVersion}",
+        picocontainer: "info.cukes:cucumber-picocontainer:${cucumberVersion}",
+        spring: "info.cukes:cucumber-spring:${cucumberVersion}"
 ]
 
 ext.junit = "junit:junit:${junitVersion}"

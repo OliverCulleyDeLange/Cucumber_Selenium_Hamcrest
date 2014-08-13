@@ -2,17 +2,18 @@ package uk.co.oliverdelange.cucumber;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import uk.co.oliverdelange.webbrowser.BrowserPool;
 
-public class SeleniumHooks extends SeleniumTest {
+public class SeleniumHooks {
 
     @Before("@RequiresSelenium")
     public void before() {
-        setFirefoxBrowser();
+//        setFirefoxBrowser();
     }
 
     @After("@RequiresSelenium")
     public void after() {
-        System.out.println("Putting browser back");
-        replaceBrowser(browser);
+//        System.out.println("Putting browser back");
+//        replaceBrowser(browser);
     }
 }

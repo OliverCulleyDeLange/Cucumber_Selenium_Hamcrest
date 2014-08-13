@@ -11,22 +11,20 @@ public abstract class AbstractPageObject implements PageObject {
 
     protected final WebDriver driver;
 
-    public AbstractPageObject(WebDriver d) throws Exception {
+    public AbstractPageObject(WebDriver d) throws IllegalStateException {
         driver = d;
         PageFactory.initElements(driver, this);
 
-        if (!isLoaded()) {
-            WebDriverWait wait = new WebDriverWait(driver, 3);
-            try {
-                wait.until(new Predicate<WebDriver>() {
-                    @Override
-                    public boolean apply(@Nullable WebDriver input) {
-                        return isLoaded();
-                    }
-                });
-            } catch (TimeoutException e) {
-                throw new Exception("Expected Page - " + this.getClass() + " was not loaded");
-            }
+        WebDriverWait wait = new WebDriverWait(driver, 99);
+        try {
+            wait.until(new Predicate<WebDriver>() {
+                @Override
+                public boolean apply(@Nullable WebDriver input) {
+                    return isLoaded();
+                }
+            });
+        } catch (TimeoutException e) {
+            throw new IllegalStateException("Expected Page - " + this.getClass() + " was not loaded");
         }
     }
 

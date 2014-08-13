@@ -6,7 +6,7 @@ public class BrowserPool {
     private BrowserPool() {}
 
     static BrowserCache FirefoxCache = new BrowserCache();
-    static BrowserCache FirefoxNoJsCache = new BrowserCache();
+    static BrowserCache FirefoxNoJsCache = new BrowserCache(); // TODO  with tagging system - Browser Builder newFirefoxbrowser.withJavaScriptDisabled()... etc
 
     public static Browser getFirefoxBrowser() {
         try {
@@ -17,6 +17,7 @@ public class BrowserPool {
             return browser;
         }
     }
+
     public static Browser getFirefoxBrowserNoJs() {
         try {
             return FirefoxNoJsCache.get();

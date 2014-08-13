@@ -1,7 +1,8 @@
 package uk.co.oliverdelange.pageobjects.Matchers;
 
 import org.hamcrest.*;
-import uk.co.oliverdelange.pageobjects.GoogleSearchPage;
+import org.testng.annotations.Factory;
+import uk.co.oliverdelange.pageobjects.google.GoogleSearchPage;
 
 public class GoogleSearchResultsMatcher {
 

@@ -1,7 +1,7 @@
 package uk.co.oliverdelange.utility;
 
 public enum PageUrls {
-    oliverdelangeSplash("http://oliverdelange.co.uk"),
+    oliverdelangeHome("http://www.oliverdelange.co.uk"),
     googleSearchPage("http://www.google.co.uk");
 
     public String url;
