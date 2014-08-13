@@ -1,27 +1,26 @@
 package uk.co.oliverdelange.cucumber.google;
 
 
-import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.hamcrest.MatcherAssert;
-import uk.co.oliverdelange.cucumber.SeleniumTest;
 import uk.co.oliverdelange.pageobjects.google.GoogleSearchPage;
 import uk.co.oliverdelange.webbrowser.Browser;
-import uk.co.oliverdelange.webbrowser.BrowserPool;
+import uk.co.oliverdelange.webbrowser.BrowserRepository;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static uk.co.oliverdelange.pageobjects.Matchers.GoogleSearchResultsMatcher.isDisplayingResultsRelatedTo;
 
-public class GoogleSearchSteps extends SeleniumTest {
+public class GoogleSearchSteps {
 
     GoogleSearchPage googleSearchPage;
+
+    Browser browser;
 
     @Given("^I am on google search page$")
     public void I_am_on_google_search_page() throws Throwable {
         System.out.println("Getting firefox browser for google");
-        browser = BrowserPool.getFirefoxBrowser();
+        browser = BrowserRepository.firefoxNoJavascript();
         googleSearchPage = browser.navigateToGoogleSearchPage();
     }
 

@@ -5,7 +5,7 @@ import cucumber.api.junit.Cucumber;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-import uk.co.oliverdelange.webbrowser.BrowserPool;
+import uk.co.oliverdelange.webbrowser.BrowserRepository;
 
 
 @RunWith(Cucumber.class)
@@ -25,6 +25,6 @@ public class JUnitCucumberRunner {
     public static void afterClass() {
         System.out.println("Do stuff here after the cucumber happens");
         System.out.println("Like shutting down all the web browsers...");
-        BrowserPool.closeAll();
+        BrowserRepository.closeAll();
     }
 }

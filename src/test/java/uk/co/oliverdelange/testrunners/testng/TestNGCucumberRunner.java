@@ -4,7 +4,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import uk.co.oliverdelange.webbrowser.BrowserPool;
+import uk.co.oliverdelange.webbrowser.BrowserRepository;
 
 @CucumberOptions(tags = "~@Ignore",
         features = "src/test/resources/uk/co/oliverdelange/cucumber/",
@@ -22,6 +22,6 @@ public class TestNGCucumberRunner extends AbstractTestNGCucumberTests {
     public static void afterClass() {
         System.out.println("Do stuff here after the cucumber happens");
         System.out.println("Like shutting down all the web browsers...");
-        BrowserPool.closeAll();
+        BrowserRepository.closeAll();
     }
 }
